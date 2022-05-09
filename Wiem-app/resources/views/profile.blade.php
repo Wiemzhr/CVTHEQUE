@@ -46,7 +46,13 @@
      </li>        
         </ul>
       </li>
-
+      <li class="nav-item">
+    <x-dropdown-link :href="url('/addcv')">
+      <i class="bi bi-journal-text"></i>
+      <span>Ajouter un CV</span>
+    
+    </x-dropdown-link>
+  </li>
   <li class="nav-heading">Pages</li>
 
   <li class="nav-item">
@@ -104,7 +110,7 @@
             </li>
 
             <li class="nav-item">
-              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">paramétres</button>
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Paramétres</button>
             </li>
 
             <li class="nav-item">
@@ -135,7 +141,9 @@
                 <div class="row mb-3">
                   <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nom et prénom</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="fullName" type="text" class="form-control" id="fullName" value={{ Auth::user()->name }}>
+                  <div class="row">
+                <div class="col-lg-9 col-md-8">{{ Auth::user()->name }}</div>
+              </div>
                   </div>
                 </div>
 
@@ -161,33 +169,69 @@
 
             <div class="tab-pane fade pt-3" id="profile-change-password">
               <!-- Change Password Form -->
-              <form submit="updatePassword">
+              <div class="panel-body">
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                    @if($errors)
+                        @foreach ($errors->all() as $error)
+                            <div class="alert alert-danger">{{ $error }}</div>
+                        @endforeach
+                    @endif
+                    <form method="POST" action="{{ route('changePasswordPost') }}">
+                        {{ csrf_field() }}
 
-                <div class="row mb-3">
-                  <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Mot de passe actuel</label>
-                  <div class="col-md-8 col-lg-9">
-                    <input name="password" type="password" class="form-control" id="currentPassword">
-                  </div>
-                </div>
+                        <div class="form-group{{ $errors->has('current-password') ? ' has-error' : '' }}">
+                            <label for="new-password" class="col-md-4 col-lg-3 col-form-label">Mot de passe actuel</label>
 
-                <div class="row mb-3">
-                  <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">Nouveau mot de passe</label>
-                  <div class="col-md-8 col-lg-9">
-                    <input name="newpassword" type="password" class="form-control" id="newPassword">
-                  </div>
-                </div>
+                            <div class="col-md-8 col-lg-9">
+                                <input id="current-password" type="password" class="form-control" name="current-password" required>
 
-                <div class="row mb-3">
-                  <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Nouveau mot de passe</label>
-                  <div class="col-md-8 col-lg-9">
-                    <input name="renewpassword" type="password" class="form-control" id="renewPassword">
-                  </div>
-                </div>
+                                @if ($errors->has('current-password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('current-password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 
-                <div class="text-center">
-                  <button type="submit" class="btn btn-primary">Modifier</button>
+                        <div class="form-group{{ $errors->has('new-password') ? ' has-error' : '' }}">
+                            <label for="new-password" class="col-md-4 col-lg-3 col-form-label">Nouveau mot de passe</label>
+
+                            <div class="col-md-8 col-lg-9">
+                                <input id="new-password" type="password" class="form-control" name="new-password" required>
+
+                                @if ($errors->has('new-password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('new-password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="new-password-confirm" class="col-md-4 col-lg-3 col-form-label"">Mot de passe (confirmation)</label>
+
+                            <div class="col-md-8 col-lg-9">
+                                <input id="new-password-confirm" type="password" class="form-control" name="new-password_confirmation" required>
+                            </div>
+                        </div>
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">
+                                   Modifier
+                                </button>
+                            </div>
+      
+                    </form>
                 </div>
-              </form><!-- End Change Password Form -->
 
             </div>
 
@@ -199,6 +243,10 @@
     </div>
   </div>
 </section>
+
+
+
+   
 
 </main><!-- End #main -->
 

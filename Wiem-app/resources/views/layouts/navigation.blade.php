@@ -62,11 +62,15 @@
                     </x-slot>
 
                     <x-slot name="content">
+
+                   
                         
                             <x-dropdown-link :href="url('/profile')">
                                 {{ __('Profil') }}
                             </x-dropdown-link>
-
+                            <x-dropdown-link :href="url('/addcv')">
+                                {{ __('Ajouter un cv') }}
+                            </x-dropdown-link>
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf

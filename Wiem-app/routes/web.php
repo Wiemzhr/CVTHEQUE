@@ -13,9 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/profile', [App\Http\Controllers\HomeController::class, 'showChangePasswordGet'])->name('changePasswordGet');
+Route::post('/profile', [App\Http\Controllers\HomeController::class, 'changePasswordPost'])->name('changePasswordPost');
+
+
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/addcv', function () {
+    return view('addcv');
+})->middleware(['auth'])->name('dashboard');
 
 // Route::get('/profile', 'PagesController@profile');
 Route::get('/profile', function () {
@@ -41,7 +48,6 @@ Route::get('/hr', function () {
 Route::get('/autres', function () {
     return view('departement.autres');
 })->middleware(['auth'])->name('dashboard');
-
 
 Route::get('/dashboard', function () {
     return view('dashboard');

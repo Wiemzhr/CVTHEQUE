@@ -46,7 +46,13 @@
      </li>        
         </ul>
       </li>
-
+      <li class="nav-item">
+    <x-dropdown-link :href="url('/addcv')">
+      <i class="bi bi-journal-text"></i>
+      <span>Ajouter un CV</span>
+    
+    </x-dropdown-link>
+  </li>
   <li class="nav-heading">Pages</li>
 
   <li class="nav-item">
