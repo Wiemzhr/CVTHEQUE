@@ -70,7 +70,7 @@
   </li>
 
   <li class="nav-item">
-      <form method="POST" action="{{ route('logout') }}">
+      <form method="POST" action="{{ route('logout') }}" enctype="multipart/form-data">
                             @csrf
 
                             <x-dropdown-link :href="route('logout')"
@@ -86,62 +86,27 @@
 </aside>
     </x-slot>
 
-    <main id="main" class="main">
+              <main id="main" class="main">
 
-<div class="pagetitle">
-  <h1>Manager</h1>
-</div><!-- End Page Title -->
-<section class="section">
-<div class="col-12">
-              <div class="card recent-sales overflow-auto">
+          <div class="pagetitle">
+            <h1>IT</h1>
+          </div><!-- End Page Title -->
+          <section class="section">
+          <div class="row mb-3">
+            <form action="{{url('cvs')}}" method="post" >
 
-                <div class="card-body">
-                  <h5 class="card-title">Liste des Curriculums Vitaes </h5>
+                  <label for="inputNumber" class="col-sm-2 col-form-label">Inserer un fichier</label>
+                  <div class="col-sm-10">
+                    @csrf
+                    <input class="form-control" type="file" id="formFile" name="name">
+                    <button type="submit" class="btn btn-secondary">Ajouter</button>
 
-                  <table class="table table-borderless datatable">
-                    <thead>
-                      <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Nom</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row"><a href="#">1</a></th>
-                        <td><a href="#" class="text-primary">Curriculum Vitae 1</a></td>
-                        <td><span  class="badge bg-success">Telecharger</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">2</a></th>
-                        <td><a href="#" class="text-primary">Curriculum Vitae  2</a></td>                    
-                        <td><span  class="badge bg-success">Telecharger</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">3</a></th>
-                        <td><a href="#" class="text-primary">Curriculum Vitae  3</a></td>
-                       
-                        <td><span  class="badge bg-success">Telecharger</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">4</a></th>
-                        <td><a href="#" class="text-primar">Curriculum Vitae 4</a></td>                       
-                        <td><span  class="badge bg-success">Telecharger</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">5</a></th>
-                        <td><a href="#" class="text-primary">Curriculum Vitae 5</a></td>
-                        <td><span class="badge bg-success">Telecharger</span></td>
-                      </tr>
-                    </tbody>
-                  </table>
-
+                  </div>               
+</form>
                 </div>
+                
 
-              </div>
-            </div>
     </section>
-
-
 
 
 

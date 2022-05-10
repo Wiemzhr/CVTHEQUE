@@ -89,8 +89,9 @@
     <main id="main" class="main">
 
 <div class="pagetitle">
-  <h1>Manager</h1>
+  <h1>Ressources Humaines</h1>
 </div><!-- End Page Title -->
+
 <section class="section">
 <div class="col-12">
               <div class="card recent-sales overflow-auto">
@@ -103,35 +104,17 @@
                       <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Nom</th>
+                        <th scope="col">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
+                      @foreach($cvs as $cv)
                       <tr>
-                        <th scope="row"><a href="#">1</a></th>
-                        <td><a href="#" class="text-primary">Curriculum Vitae 1</a></td>
-                        <td><span  class="badge bg-success">Telecharger</span></td>
+                        <th scope="row"><a href="#">{{ $cv->id }}</a></th>
+                        <td><a href="#" class="text-primary">{{ $cv->name }}</a></td>
+                        <td><span  class="btn btn-primary">Telecharger</span></td>
                       </tr>
-                      <tr>
-                        <th scope="row"><a href="#">2</a></th>
-                        <td><a href="#" class="text-primary">Curriculum Vitae  2</a></td>                    
-                        <td><span  class="badge bg-success">Telecharger</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">3</a></th>
-                        <td><a href="#" class="text-primary">Curriculum Vitae  3</a></td>
-                       
-                        <td><span  class="badge bg-success">Telecharger</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">4</a></th>
-                        <td><a href="#" class="text-primar">Curriculum Vitae 4</a></td>                       
-                        <td><span  class="badge bg-success">Telecharger</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">5</a></th>
-                        <td><a href="#" class="text-primary">Curriculum Vitae 5</a></td>
-                        <td><span class="badge bg-success">Telecharger</span></td>
-                      </tr>
+                      @endforeach
                     </tbody>
                   </table>
 
@@ -140,9 +123,12 @@
               </div>
             </div>
     </section>
+    <!-- @foreach($cvs as $cv)
+    <div>
 
-
-
+      <iframe height="100" width="400" src="storage/app/image/{{ $cv->name }}" > </iframe>
+            </div>
+            @endforeach -->
 
 
 </main><!-- End #main -->

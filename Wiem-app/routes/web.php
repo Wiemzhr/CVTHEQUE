@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UploadController;
+use App\Http\Controllers\CvController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +22,17 @@ Route::post('/profile', [App\Http\Controllers\HomeController::class, 'changePass
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+
+
 Route::get('/addcv', function () {
     return view('addcv');
 })->middleware(['auth'])->name('dashboard');
+
+
+Route::post('/it', [UploadController::class, 'store'])->name('store');
 
 // Route::get('/profile', 'PagesController@profile');
 Route::get('/profile', function () {
@@ -52,5 +62,22 @@ Route::get('/autres', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+
+
+
+
+Route::get('/cvs/create', [App\Http\Controllers\CvController::class, 'create'])->name('create');
+Route::post('/cvs', [App\Http\Controllers\CvController::class, 'store'])->name('store');
+Route::get('/cvs', [App\Http\Controllers\CvController::class, 'index'])->name('index');
+
+
+// Route::get('cvs', 'CvController@index');
+// Route::post('cvs', 'CvController@store');
+// Route::get('cvs/{id}/edit', 'CvController@edit');
+
+
+
+
 
 require __DIR__.'/auth.php';

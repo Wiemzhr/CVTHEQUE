@@ -87,13 +87,16 @@
           </div><!-- End Page Title -->
           <section class="section">
           <div class="row mb-3">
+            <form action="{{ url('it') }}" method="POST" enctype="multipart/form-data">
+
                   <label for="inputNumber" class="col-sm-2 col-form-label">Inserer un fichier</label>
                   <div class="col-sm-10">
-                    <input class="form-control" type="file" id="formFile">
+                    @csrf
+                    <input class="form-control" type="file" id="formFile" name="file">
                     <button type="submit" class="btn btn-secondary">Ajouter</button>
 
                   </div>               
-                
+</form>
                 </div>
                 
 

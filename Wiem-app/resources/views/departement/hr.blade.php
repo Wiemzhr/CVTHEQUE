@@ -11,7 +11,19 @@
       <span>Tableau de bord</span>
     </a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link " href="{{url('cvs')}}">
+      <i class="bi bi-card-list"></i>
+      <span>Liste des CV</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link " href="{{url('cvs/create')}}">
+    <i class="bi bi-file-earmark-plus"></i>
 
+      <span>Ajouter un CV</span>
+    </a>
+  </li>
   <li class="nav-item">
     <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
       <i class="bi bi-menu-button-wide"></i><span>Départements</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -46,14 +58,7 @@
      </li>        
         </ul>
       </li>
-      <li class="nav-item">
-    <x-dropdown-link :href="url('/addcv')">
-      <i class="bi bi-journal-text"></i>
-      <span>Ajouter un CV</span>
-    
-    </x-dropdown-link>
-  </li>
-
+   
   <li class="nav-heading">Pages</li>
 
   <li class="nav-item">
