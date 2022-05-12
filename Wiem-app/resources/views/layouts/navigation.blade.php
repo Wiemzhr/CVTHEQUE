@@ -68,7 +68,7 @@
                             <x-dropdown-link :href="url('/profile')">
                                 {{ __('Profil') }}
                             </x-dropdown-link>
-                            <x-dropdown-link :href="url('/addcv')">
+                            <x-dropdown-link :href="url('cvs/create')">
                                 {{ __('Ajouter un cv') }}
                             </x-dropdown-link>
                         <!-- Authentication -->

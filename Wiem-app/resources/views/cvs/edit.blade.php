@@ -70,7 +70,7 @@
   </li>
 
   <li class="nav-item">
-      <form method="POST" action="{{ route('logout') }}">
+      <form method="POST" action="{{ route('logout') }}" enctype="multipart/form-data">
                             @csrf
 
                             <x-dropdown-link :href="route('logout')"
@@ -86,57 +86,38 @@
 </aside>
     </x-slot>
 
-    <main id="main" class="main">
+              <main id="main" class="main">
+          <section class="section">
+            
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Ajouter un CV</h5>
+            <form action="{{url('cvs/'.$cv->id)}}" method="post" >
+                <input type="hidden" name="_method" value="PUT">
+            <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label" placeholder="{{$cv->name}}" value="{{$cv->name}}">Titre</label>
+                  <div class="col-sm-10">
+                  @csrf
+                    <input type="text" class="form-control" name="name">
+                  </div>
 
-<div class="pagetitle">
-  
-</div><!-- End Page Title -->
+                  
+                  <!-- <label for="inputNumber" class="col-sm-2 col-form-label">Inserer un fichier</label>
+                  <div class="col-sm-10">
+                    @csrf
+                    <input class="form-control" type="file" id="formFile" name="name">
+                    
 
-<section class="section">
-<div class="col-12">
-              <div class="card recent-sales overflow-auto">
-
-                <div class="card-body">
-                  <h5 class="card-title">Liste des Curriculums Vitaes </h5>
-
-                  <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Nom</th>
-                        <th scope="col">Curriculums Vitaes</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @foreach($cvs as $cv)
-                      <tr>
-                        <th scope="row"><a>{{ $cv->id }}</a></th>
-                        <td><a class="text-primary">{{ $cv->name }}</a></td>
-                        <td><a href="{{asset($cv->link)}}" target="_blanc"  class="text-primary">{{asset($cv->link)}}</a></td>
-                        <td>
-
-
-                            <form action="{{url('cvs/'.$cv->id)}}" method="post">
-                                {{csrf_field()}}
-                                {{method_field('delete')}}
-                            <a href="{{url('cvs/'.$cv->id.'/edit')}}" class="btn btn-default">Modifier</a>
-                            <button class="btn btn-default" type="submit">Supprimer</button>
-                          </form>
-                        </td>
-                   
-                      </tr>
-                      @endforeach
-                    </tbody>
-                  </table>
-
+                  </div>                -->
+                  <button type="submit" class="btn btn-secondary">Modifier</button>
+</form>
                 </div>
-
-              </div>
-            </div>
-    </section>
- 
 </div>
-  
+</div>
+</div> 
+
+    </section>
+
 
 
 </main><!-- End #main -->

@@ -87,24 +87,34 @@
     </x-slot>
 
               <main id="main" class="main">
-
-          <div class="pagetitle">
-            <h1>IT</h1>
-          </div><!-- End Page Title -->
           <section class="section">
-          <div class="row mb-3">
-            <form action="{{url('cvs')}}" method="post" >
+            
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Ajouter un CV</h5>
+            <form action="{{url('cvs')}}" method="post" enctype="multipart/form-data">
+            {{csrf_field()}}
+            <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">Titre</label>
+                  <div class="col-sm-10">
+                  
+                    <input type="text" class="form-control" name="name">
+                  </div>
 
+                  
                   <label for="inputNumber" class="col-sm-2 col-form-label">Inserer un fichier</label>
                   <div class="col-sm-10">
                     @csrf
-                    <input class="form-control" type="file" id="formFile" name="name">
+                    <input  class="form-control" type="file" id="formFile" name="link">
+                    
                     <button type="submit" class="btn btn-secondary">Ajouter</button>
 
-                  </div>               
-</form>
+                  </div>  
+        </form>
                 </div>
-                
+          </div>
+          </div>
+          </div> 
 
     </section>
 

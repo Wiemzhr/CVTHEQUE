@@ -70,11 +70,11 @@ Route::get('/dashboard', function () {
 Route::get('/cvs/create', [App\Http\Controllers\CvController::class, 'create'])->name('create');
 Route::post('/cvs', [App\Http\Controllers\CvController::class, 'store'])->name('store');
 Route::get('/cvs', [App\Http\Controllers\CvController::class, 'index'])->name('index');
+Route::get('/cvs/{id}/edit', [App\Http\Controllers\CvController::class, 'edit'])->name('edit');
+Route::put('/cvs/{id}', [App\Http\Controllers\CvController::class, 'update'])->name('update');
+Route::delete('/cvs/{id}', [App\Http\Controllers\CvController::class, 'destroy'])->name('destroy');
 
 
-// Route::get('cvs', 'CvController@index');
-// Route::post('cvs', 'CvController@store');
-// Route::get('cvs/{id}/edit', 'CvController@edit');
 
 
 

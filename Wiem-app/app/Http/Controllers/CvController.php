@@ -30,9 +30,14 @@ class CvController extends Controller
         $cv-> name = $request -> input('name');
         
 
-        if($request->hasFile('file')){
-            $cv->file= $request->file->store('cvs');
-         }
+       
+        if($request->hasFile('link')) {
+            $fileName = time().'_'.$request->file('link')->getClientOriginalName();
+            $filePath = $request->file('link')->storeAs('uploads', $fileName, 'public');
+            $cv->link = '/storage/' . $filePath;
+           
+            
+        }
          
         $cv -> save();
 
@@ -42,7 +47,31 @@ class CvController extends Controller
     }
 
     //Recuperer un cv
-    public function edit(){
+    public function edit($id){
+
+        $cv =Cv::find($id);
+
+        return view('cvs.edit',['cv'=> $cv]);
+
+    }
+
+    //Modifier un cv
+    public function update(Request $request, $id){
+        $cv =Cv::find($id);
+        $cv->name = $request -> input('name');
+
+        $cv -> save();
+
+        return redirect('cvs');
+    }
+
+    //Supprimer un cv
+    public function destroy(Request $request, $id){
+
+        $cv = Cv::find($id);
+        $cv->delete();
+
+        return redirect('cvs');
 
     }
 }
