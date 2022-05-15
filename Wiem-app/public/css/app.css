@@ -1265,6 +1265,10 @@ select {
     border-color: rgb(55 65 81 / var(--tw-border-opacity));
   }
 
+  .background-image {
+    background-image: url("assets/img/bg1.jpg");
+  }
+
   .dark\:bg-gray-900 {
     --tw-bg-opacity: 1;
     background-color: rgb(17 24 39 / var(--tw-bg-opacity));

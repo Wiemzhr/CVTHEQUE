@@ -105,6 +105,7 @@
                         <th scope="col">ID</th>
                         <th scope="col">Nom</th>
                         <th scope="col">Curriculums Vitaes</th>
+                        <th scope="col">Departement</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -113,6 +114,7 @@
                         <th scope="row"><a>{{ $cv->id }}</a></th>
                         <td><a class="text-primary">{{ $cv->name }}</a></td>
                         <td><a href="{{asset($cv->link)}}" target="_blanc"  class="text-primary">{{asset($cv->link)}}</a></td>
+                        <td><a href="#" target="_blanc"  class="text-primary"><i class="bi bi-bookmark-plus">{{ $cv->depart }}</i></a></td>
                         <td>
 
 

@@ -86,7 +86,10 @@
 </aside>
     </x-slot>
     <main id="main" class="main">
-
+<div id="background-image">
+    <img src="assets/img/bg2.jpg" class="back-to-top:hover" alt="Page Not Found"  >
+</div>
+<!-- 
     <section class="section">
       <div class="row">
         <div class="col-lg-6">
@@ -117,7 +120,7 @@
                   <span class="visually-hidden">Next</span>
                 </button>
 
-              </div><!-- End Slides with controls -->
+              </div>
             </div>
           </div>
 
@@ -125,7 +128,6 @@
             <div class="card-body">
               <div class="card-title"> </div>
 
-              <!-- Slides with indicators -->
               <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -153,7 +155,7 @@
                   <span class="visually-hidden">Next</span>
                 </button>
 
-              </div><!-- End Slides with indicators -->
+              </div>
 
             </div>
           </div>
@@ -167,7 +169,7 @@
             <div class="card-body">
              <div class="card-title"> </div>
 
-              <!-- Slides with indicators -->
+              
               <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -185,7 +187,7 @@
                     <img src="assets/img/logo.png" class="d-block w-100" alt="...">
                   </div>
                 </div>
-              </div><!-- End Slides with indicators -->
+              </div>
 
             </div>
           </div>
@@ -209,14 +211,14 @@
 
          
 
-              </div><!-- End Slides with controls -->
+              </div>
 
             </div>
           </div>
 
         </div>
       </div>
-    </section>
+    </section> -->
 
   </main><!-- End #main -->
 

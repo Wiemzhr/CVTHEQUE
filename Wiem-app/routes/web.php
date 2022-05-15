@@ -15,6 +15,16 @@ use App\Http\Controllers\CvController;
 |
 */
 
+//Integration python test
+Route::get('/user', [UploadController::class,'analyse']);
+
+//Integration python ajout depart
+// Route::put('/user', [UploadController::class,'update']);
+
+
+
+
+
 Route::get('/profile', [App\Http\Controllers\HomeController::class, 'showChangePasswordGet'])->name('changePasswordGet');
 Route::post('/profile', [App\Http\Controllers\HomeController::class, 'changePasswordPost'])->name('changePasswordPost');
 

@@ -7,17 +7,23 @@ use Illuminate\Http\UploadedFile;
 
 class UploadController extends Controller
 {
-    public function store(Request $request){
-        $cv = new Cv();
-        if($request->hasFile('file')){
-           $cv->file= $request->file->store('cv');
-        }
-        
-        $cv->save();
+    public function analyse(Request $req){
 
-        return redirect('uploads');
+        $name=shell_exec("C:/Users/Lenovo/anaconda3/envs/env/python.exe C:/Users/Lenovo/anaconda3/envs/env/temp.py ");
+    
+          return view('test',  ['name' => $name]);
+          }
 
-    }
+
+    //Modifier un cv
+  //   public function update(Request $request, $id){
+  //     $cv =Cv::find($id);
+  //     $cv->depart = $request -> input('depart');
+
+  //     $cv -> save();
+
+  //     return redirect('cvs');
+  // }
 
 
 
