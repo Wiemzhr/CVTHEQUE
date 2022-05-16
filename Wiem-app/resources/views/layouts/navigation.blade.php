@@ -38,8 +38,8 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <div class="search-bar">
-                        <form class="search-form d-flex align-items-center" method="" action="#">
-                            <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+                        <form class="search-form d-flex align-items-center" method="GET" action="{{ route('search') }}">
+                            <input type="text" name="search" placeholder="Search" title="Enter search keyword">
                             <button type="submit" title="Search"><i class="bi bi-search"></i></button>
                         </form>
                     </div><!-- End Search Bar -->

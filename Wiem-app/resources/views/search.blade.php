@@ -109,11 +109,13 @@
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach($cvs as $cv)
+                    @if($cv->isNotEmpty())   
+                      @foreach($cv as $cv)
                       <tr>
                         <th scope="row"><a>{{ $cv->id }}</a></th>
                         <td><a class="text-primary">{{ $cv->name }}</a></td>
                         <td><a href="{{asset($cv->link)}}" target="_blanc"  class="text-primary">{{asset($cv->link)}}</a></td>
+                        <td><a href="#" target="_blanc"  class="text-primary"><i class="bi bi-bookmark-plus">{{ $cv->depart }}</i></a></td>
                         <td>
 
 
@@ -126,7 +128,13 @@
                         </td>
                    
                       </tr>
-                      @endforeach
+                      </div>
+              @endforeach
+        @else 
+            <div>
+                 <h2>Aucun CV existant</h2>
+            </div>
+            @endif
                     </tbody>
                   </table>
 

@@ -85,9 +85,9 @@
 
 </aside>
     </x-slot>
-    <main id="main" class="main">
-<div id="background-image">
-    <img src="assets/img/bg2.jpg" class="back-to-top:hover" alt="Page Not Found"  >
+    <main id="main" class="main xx">
+<div >
+  gdggdfgdfg
 </div>
 <!-- 
     <section class="section">

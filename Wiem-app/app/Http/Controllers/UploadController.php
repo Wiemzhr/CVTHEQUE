@@ -4,13 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
+use App\Models\Cv;
+
 
 class UploadController extends Controller
 {
-    public function analyse(Request $req){
-
-        $name=shell_exec("C:/Users/Lenovo/anaconda3/envs/env/python.exe C:/Users/Lenovo/anaconda3/envs/env/temp.py ");
+    public function analyse($id){
+      $cv =Cv::find($id);
     
+     $string = $cv->link;
+  
+     $name=shell_exec("C:/Users/Lenovo/anaconda3/envs/env/python.exe C:/Users/Lenovo/anaconda3/envs/env/temp.py ".escapeshellarg($string));  
           return view('test',  ['name' => $name]);
           }
 

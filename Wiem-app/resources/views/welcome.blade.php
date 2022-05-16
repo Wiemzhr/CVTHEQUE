@@ -29,11 +29,11 @@
 
 
     </head>
-    <body class="antialiased">
+    <body class="antialiased" >
         <main>
     <div class="container">
 
-      <section class="section error-404 min-vh-100 d-flex flex-column align-items-center justify-content-center">
+      <section class="section error-404 min-vh-100 d-flex flex-column align-items-center justify-content-center ">
         <h2>Bienvenue à CvThéque.</h2>
         @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
@@ -49,7 +49,7 @@
                 </div>
             @endif
         <img src="assets/img/test.jpg" class="img-fluid py-5" alt="Page Not Found">
-        <div class="credits">
+        <div class="credits ">
           <!-- All the links in the footer should remain intact. -->
           <!-- You can delete the links only if you purchased the pro version. -->
           <!-- Licensing information: https://bootstrapmade.com/license/ -->

@@ -16,7 +16,7 @@ use App\Http\Controllers\CvController;
 */
 
 //Integration python test
-Route::get('/user', [UploadController::class,'analyse']);
+Route::get('/analyse/{id}', [UploadController::class,'analyse'])->name('analyse');
 
 //Integration python ajout depart
 // Route::put('/user', [UploadController::class,'update']);
@@ -75,6 +75,7 @@ Route::get('/dashboard', function () {
 
 
 
+Route::get('/search/',[App\Http\Controllers\CvController::class, 'search'])->name('search');
 
 
 Route::get('/cvs/create', [App\Http\Controllers\CvController::class, 'create'])->name('create');
