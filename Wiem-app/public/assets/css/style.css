@@ -95,7 +95,7 @@ h6 {
 }
 
 .xx {
-    background-image: url("../img/way.jpg") !important;
+    background-image: url("../img/bg2.jpg") !important;
 
 }
 
@@ -380,7 +380,7 @@ h6 {
 }
 .header .search-bar {
     min-width: 360px;
-    padding: 10px 20px;
+    padding: 10px 100px;
 }
 @media (max-width: 1199px) {
     .header .search-bar {
@@ -403,7 +403,7 @@ h6 {
     }
 }
 .header .search-form {
-    width: 100%;
+    width: 150%;
 }
 .header .search-form input {
     border: 0;

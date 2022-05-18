@@ -85,10 +85,8 @@
 
 </aside>
     </x-slot>
-    <main id="main" class="main xx">
-<div >
-  gdggdfgdfg
-</div>
+    <main id="main" class="main">
+
 <!-- 
     <section class="section">
       <div class="row">

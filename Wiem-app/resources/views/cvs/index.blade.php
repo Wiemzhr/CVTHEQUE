@@ -135,9 +135,6 @@
               </div>
             </div>
     </section>
- 
-</div>
-  
 
 
 </main><!-- End #main -->

@@ -32,14 +32,14 @@
                     <a href="{{ route('dashboard') }}" class="shrink-0 flex items-center">
                         <img src="{{asset('assets/img/logo.png')}}">
                     </a>
-                    <i class="bi bi-list toggle-sidebar-btn"></i>
+                    
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <div class="search-bar">
                         <form class="search-form d-flex align-items-center" method="GET" action="{{ route('search') }}">
-                            <input type="text" name="search" placeholder="Search" title="Enter search keyword">
+                            <input type="text" name="search" placeholder="Effectuer une recherche" title="Enter search keyword">
                             <button type="submit" title="Search"><i class="bi bi-search"></i></button>
                         </form>
                     </div><!-- End Search Bar -->
