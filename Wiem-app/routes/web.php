@@ -16,10 +16,14 @@ use App\Http\Controllers\CvController;
 */
 
 //Integration python test
-Route::get('/analyse/{id}', [UploadController::class,'analyse'])->name('analyse');
+// Route::get('/class/{id}', [UploadController::class,'analyse'])->name('analyse');
 
-//Integration python ajout depart
-// Route::put('/user', [UploadController::class,'update']);
+// Route::post('/cvs', [App\Http\Controllers\CvController::class, 'store'])->name('store');
+
+
+
+
+// Route::post('/analyse/{id}', [UploadController::class,'analyse'])->name('analyse');
 
 
 
@@ -86,9 +90,36 @@ Route::put('/cvs/{id}', [App\Http\Controllers\CvController::class, 'update'])->n
 Route::delete('/cvs/{id}', [App\Http\Controllers\CvController::class, 'destroy'])->name('destroy');
 
 
+//queries
+//get element of it departement
+Route::get('/it', [App\Http\Controllers\CvController::class, 'getItDep'])->name('getItDep');
+//get element of Production departement
+Route::get('/production', [App\Http\Controllers\CvController::class, 'getProdDep'])->name('getProdDep');
+//get element of Technique departement
+Route::get('/technique', [App\Http\Controllers\CvController::class, 'getTechDep'])->name('getTechDep');
+//get element of Administratif departement
+Route::get('/administratif', [App\Http\Controllers\CvController::class, 'getAdDep'])->name('getAdDep');
+//get element of Autres departement
+Route::get('/autres', [App\Http\Controllers\CvController::class, 'getOtherDep'])->name('getOtherDep');
 
 
 
+//Modif Autre depart
+Route::put('/cvs/{id}', [App\Http\Controllers\CvController::class, 'updateAutre'])->name('updateAutre');
+
+//Modif Prod depart
+Route::put('/cvs/{id}', [App\Http\Controllers\CvController::class, 'updateprod'])->name('updateprod');
+
+
+//Modif Administratif depart
+Route::put('/cvs/{id}', [App\Http\Controllers\CvController::class, 'updateAdministratif'])->name('updateAdministratif');
+
+
+//Modif tech depart
+Route::put('/cvs/{id}', [App\Http\Controllers\CvController::class, 'updateTech'])->name('updateTech');
+
+//Modif IT depart
+Route::put('/cvs/{id}', [App\Http\Controllers\CvController::class, 'updateIT'])->name('updateIT');
 
 
 require __DIR__.'/auth.php';

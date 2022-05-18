@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use App\Models\Cv;
 use App\Http\Requests\cvRequest;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
+
 
 class CvController extends Controller
 {
@@ -34,14 +37,18 @@ class CvController extends Controller
         if($request->hasFile('link')) {
             $fileName = time().'_'.$request->file('link')->getClientOriginalName();
             $filePath = $request->file('link')->storeAs('uploads', $fileName, 'public');
-            $cv->link = '/storage/' . $filePath;
-           
+            $cv->link = '/storage/' . $filePath;           
             
         }
-         
-        $cv -> save();
 
-        
+        $pieces = explode("/", $cv->link);
+    
+         $path = "C:/xampp/htdocs/wiemApp/Wiem-app/storage/app/public/uploads/".$pieces[3];
+  
+         $class=shell_exec("C:/Users/Lenovo/anaconda3/envs/env/python.exe C:/Users/Lenovo/anaconda3/envs/env/temp.py ".escapeshellarg($path)); 
+         $cv-> depart = $class;
+      
+        $cv -> save();
 
         return redirect('cvs');
     }
@@ -89,4 +96,103 @@ class CvController extends Controller
         // Return the search view with the resluts compacted
         return view('search', compact('cv'));
     }
+
+
+//get element of it departement
+    public function getItDep(){
+
+
+       $data = DB::table('cvs')->where('depart' ,'like','%IT%')->get();
+
+        return view('departement.it', ['data' => $data ]);
+    }
+
+//get element of prod departement
+    public function getProdDep(Request $request){
+
+       $data = DB::table('cvs')->where('depart', 'like','%Production%')->get();
+
+        return view('departement.production', ['data' => $data ]);
+    }
+
+//get element of tech departement
+    public function getTechDep(Request $request){
+
+       $data = DB::table('cvs')->where('depart', 'like','%Technique%')->get();
+
+        return view('departement.technique', ['data' => $data ]);
+    }
+
+//get element of administratif departement
+    public function getAdDep(Request $request){
+
+       $data = DB::table('cvs')->where('depart', 'like','%Administratif%')->get();
+
+        return view('departement.administratif', ['data' => $data ]);
+    }
+//get element of other departement
+    public function getOtherDep(Request $request){
+
+       $data = DB::table('cvs')->where('depart', 'like','%Autres%')->get();
+
+        return view('departement.autres', ['data' => $data ]);
+    }
+
+
+//Modif Autre depart
+    public function updateAutre(Request $request, $id){
+        $cv =Cv::find($id);
+        $cv->name = $request -> input('name');
+
+        $cv -> save();
+
+        return redirect('autres');
+    }
+
+//Modif Prod depart
+    public function updateprod(Request $request, $id){
+        $cv =Cv::find($id);
+        $cv->name = $request -> input('name');
+
+        $cv -> save();
+
+        return redirect('production');
+    }
+
+//Modif Administratif depart
+    public function updateAdministratif(Request $request, $id){
+        $cv =Cv::find($id);
+        $cv->name = $request -> input('name');
+
+        $cv -> save();
+
+        return redirect('administratif');
+    }
+
+
+//Modif technique depart
+    public function updateTech(Request $request, $id){
+        $cv =Cv::find($id);
+        $cv->name = $request -> input('name');
+
+        $cv -> save();
+
+        return redirect('technique');
+    }
+
+//Modif it depart
+    public function updateIT(Request $request, $id){
+        $cv =Cv::find($id);
+        $cv->name = $request -> input('name');
+
+        $cv -> save();
+
+        return redirect('it');
+    }
+
+
+    
+
+
+
 }

@@ -25,6 +25,9 @@ class cvRequest extends FormRequest
     {
         return [
             'name'=> 'required',
+            'link'=> 'required',
+            
+            // 'depart'=> 'required',
         ];
     }
 }

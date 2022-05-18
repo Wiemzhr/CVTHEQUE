@@ -36,19 +36,19 @@
             </x-dropdown-link>
      </li>
      <li>
-            <x-dropdown-link :href="url('/serviceClient')">
-              <i class="bi bi-circle"></i> {{ __('Service client') }}
+            <x-dropdown-link :href="url('/technique')">
+              <i class="bi bi-circle"></i> {{ __('Technique') }}
             </x-dropdown-link>
 
      </li>
      <li>
-            <x-dropdown-link :href="url('/manager')">
-              <i class="bi bi-circle"></i> {{ __('Manager') }}
+            <x-dropdown-link :href="url('/administratif')">
+              <i class="bi bi-circle"></i> {{ __('Administratif') }}
             </x-dropdown-link>
      </li>
      <li>
-            <x-dropdown-link :href="url('/hr')">
-              <i class="bi bi-circle"></i> {{ __('Ressource humaine') }}
+            <x-dropdown-link :href="url('/production')">
+              <i class="bi bi-circle"></i> {{ __('Production') }}
             </x-dropdown-link>
      </li>
      <li>

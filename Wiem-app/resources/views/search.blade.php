@@ -1,7 +1,6 @@
 <x-app-layout>
     <x-slot name="header" >
    
-    
     <aside id="sidebar" class="sidebar">
 <ul class="sidebar-nav" id="sidebar-nav">
 
@@ -36,19 +35,19 @@
             </x-dropdown-link>
      </li>
      <li>
-            <x-dropdown-link :href="url('/serviceClient')">
-              <i class="bi bi-circle"></i> {{ __('Service client') }}
+            <x-dropdown-link :href="url('/technique')">
+              <i class="bi bi-circle"></i> {{ __('Technique') }}
             </x-dropdown-link>
 
      </li>
      <li>
-            <x-dropdown-link :href="url('/manager')">
-              <i class="bi bi-circle"></i> {{ __('Manager') }}
+            <x-dropdown-link :href="url('/administratif')">
+              <i class="bi bi-circle"></i> {{ __('Administratif') }}
             </x-dropdown-link>
      </li>
      <li>
-            <x-dropdown-link :href="url('/hr')">
-              <i class="bi bi-circle"></i> {{ __('Ressource humaine') }}
+            <x-dropdown-link :href="url('/production')">
+              <i class="bi bi-circle"></i> {{ __('Production') }}
             </x-dropdown-link>
      </li>
      <li>
@@ -115,7 +114,7 @@
                         <th scope="row"><a>{{ $cv->id }}</a></th>
                         <td><a class="text-primary">{{ $cv->name }}</a></td>
                         <td><a href="{{asset($cv->link)}}" target="_blanc"  class="text-primary">{{asset($cv->link)}}</a></td>
-                        <td><a href="#" target="_blanc"  class="text-primary"><i class="bi bi-bookmark-plus">{{ $cv->depart }}</i></a></td>
+                        <td><a class="text-primary">{{ $cv->depart }}</a></td>
                         <td>
 
 

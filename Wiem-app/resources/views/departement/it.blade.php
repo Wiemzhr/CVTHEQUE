@@ -1,6 +1,7 @@
 <x-app-layout>
     <x-slot name="header" >
    
+    
     <aside id="sidebar" class="sidebar">
 <ul class="sidebar-nav" id="sidebar-nav">
 
@@ -35,19 +36,19 @@
             </x-dropdown-link>
      </li>
      <li>
-            <x-dropdown-link :href="url('/serviceClient')">
-              <i class="bi bi-circle"></i> {{ __('Service client') }}
+            <x-dropdown-link :href="url('/technique')">
+              <i class="bi bi-circle"></i> {{ __('Technique') }}
             </x-dropdown-link>
 
      </li>
      <li>
-            <x-dropdown-link :href="url('/manager')">
-              <i class="bi bi-circle"></i> {{ __('Manager') }}
+            <x-dropdown-link :href="url('/administratif')">
+              <i class="bi bi-circle"></i> {{ __('Administratif') }}
             </x-dropdown-link>
      </li>
      <li>
-            <x-dropdown-link :href="url('/hr')">
-              <i class="bi bi-circle"></i> {{ __('Ressource humaine') }}
+            <x-dropdown-link :href="url('/production')">
+              <i class="bi bi-circle"></i> {{ __('Production') }}
             </x-dropdown-link>
      </li>
      <li>
@@ -97,13 +98,43 @@
                 <div class="card-body">
                   <h5 class="card-title">Liste des Curriculums Vitaes </h5>
 
-          
+                  <table class="table table-borderless datatable">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Lien</th>
+                        <th scope="col">Departement</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($data as $cvs)
+                      <tr>
+                      <th scope="row"><a>{{ $cvs->id }}</a></th>
+                        <td><a class="text-primary">{{ $cvs->name }}</a></td>
+                        <td><a href="{{asset($cvs->link)}}" target="_blanc"  class="text-primary">{{asset($cvs->link)}}</a></td>
+                         <td><a class="text-primary">{{ $cvs->depart }}</a></td>
+                         <td>
+                           
+                           <form action="{{url('cvs/'.$cvs->id)}}" method="post">
+                               {{csrf_field()}}
+                               {{method_field('delete')}}
+                           <a href="{{url('cvs/'.$cvs->id.'/edit')}}" class="btn btn-default">Modifier</a>
+                           <button class="btn btn-default" type="submit">Supprimer</button>
+                           </form>
+                           </td>
+                      </tr>           
+                      @endforeach
+                    </tbody>
+                  </table>
 
                 </div>
 
               </div>
             </div>
     </section>
+
+
 
 
 

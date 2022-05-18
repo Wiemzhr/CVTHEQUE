@@ -36,19 +36,19 @@
             </x-dropdown-link>
      </li>
      <li>
-            <x-dropdown-link :href="url('/serviceClient')">
-              <i class="bi bi-circle"></i> {{ __('Service client') }}
+            <x-dropdown-link :href="url('/technique')">
+              <i class="bi bi-circle"></i> {{ __('Technique') }}
             </x-dropdown-link>
 
      </li>
      <li>
-            <x-dropdown-link :href="url('/manager')">
-              <i class="bi bi-circle"></i> {{ __('Manager') }}
+            <x-dropdown-link :href="url('/administratif')">
+              <i class="bi bi-circle"></i> {{ __('Administratif') }}
             </x-dropdown-link>
      </li>
      <li>
-            <x-dropdown-link :href="url('/hr')">
-              <i class="bi bi-circle"></i> {{ __('Ressource humaine') }}
+           <x-dropdown-link :href="url('/production')">
+              <i class="bi bi-circle"></i> {{ __('Production') }}
             </x-dropdown-link>
      </li>
      <li>
@@ -89,8 +89,9 @@
     <main id="main" class="main">
 
 <div class="pagetitle">
-  <h1>Service Client</h1>
+  <h1>Production</h1>
 </div><!-- End Page Title -->
+
 <section class="section">
 <div class="col-12">
               <div class="card recent-sales overflow-auto">
@@ -103,34 +104,28 @@
                       <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Nom</th>
+                        <th scope="col">Lien</th>
+                        <th scope="col">Departement</th>
                       </tr>
                     </thead>
                     <tbody>
+                    @foreach($data as $cvs)
                       <tr>
-                        <th scope="row"><a href="#">1</a></th>
-                        <td><a href="#" class="text-primary">Curriculum Vitae 1</a></td>
-                        <td><span  class="badge bg-success">Telecharger</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">2</a></th>
-                        <td><a href="#" class="text-primary">Curriculum Vitae  2</a></td>
-                        <td><span  class="badge bg-success">Telecharger</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">3</a></th>
-                        <td><a href="#" class="text-primary">Curriculum Vitae  3</a></td>
-                        <td><span  class="badge bg-success">Telecharger</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">4</a></th>
-                        <td><a href="#" class="text-primar">Curriculum Vitae 4</a></td>
-                        <td><span  class="badge bg-success">Telecharger</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">5</a></th>
-                        <td><a href="#" class="text-primary">Curriculum Vitae 5</a></td>
-                        <td><span class="badge bg-success">Telecharger</span></td>
-                      </tr>
+                      <th scope="row"><a>{{ $cvs->id }}</a></th>
+                        <td><a class="text-primary">{{ $cvs->name }}</a></td>
+                        <td><a href="{{asset($cvs->link)}}" target="_blanc"  class="text-primary">{{asset($cvs->link)}}</a></td>
+                         <td><a class="text-primary">{{ $cvs->depart }}</a></td>
+                         <td>
+                           
+                           <form action="{{url('cvs/'.$cvs->id)}}" method="post">
+                               {{csrf_field()}}
+                               {{method_field('delete')}}
+                           <a href="{{url('cvs/'.$cvs->id.'/edit')}}" class="btn btn-default">Modifier</a>
+                           <button class="btn btn-default" type="submit">Supprimer</button>
+                           </form>
+                           </td>
+                      </tr>           
+                      @endforeach
                     </tbody>
                   </table>
 
@@ -139,8 +134,6 @@
               </div>
             </div>
     </section>
-
-
 
 
 </main><!-- End #main -->
