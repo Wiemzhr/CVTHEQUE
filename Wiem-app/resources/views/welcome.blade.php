@@ -31,34 +31,36 @@
     </head>
     <body class="antialiased" >
         <main>
+    <section class="vh-100" style="background-color: #52A1DA;">
     <div class="container">
 
-      <section class="section error-404 min-vh-100 d-flex flex-column align-items-center justify-content-center ">
-        <h2>Bienvenue à CvThéque.</h2>
-        @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="btn">Tableau de bord</a>
-                    @else
-                        <a href="{{ route('login') }}" class="btn">Connexion</a>
+<section class="section error-404 min-vh-100 d-flex flex-column align-items-center justify-content-center ">
+  <h2>Bienvenue à CvThéque.</h2>
+  @if (Route::has('login'))
+          <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+              @auth
+                  <a href="{{ url('/dashboard') }}" class="btn">Tableau de bord</a>
+              @else
+                  <a href="{{ route('login') }}" class="btn">Connexion</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="btn">Inscription</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-        <img src="assets/img/test.jpg" class="img-fluid py-5" alt="Page Not Found">
-        <div class="credits ">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
- 
-        </div>
-      </section>
+                  @if (Route::has('register'))
+                      <a href="{{ route('register') }}" class="btn">Inscription</a>
+                  @endif
+              @endauth
+          </div>
+      @endif
+  <img src="assets/img/test.jpg" class="img-fluid py-5" alt="Page Not Found">
+  <div class="credits ">
+    <!-- All the links in the footer should remain intact. -->
+    <!-- You can delete the links only if you purchased the pro version. -->
+    <!-- Licensing information: https://bootstrapmade.com/license/ -->
+    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
 
-    </div>
+  </div>
+</section>
+
+</div>
+</section>
   </main><!-- End #main -->
     </body>
 </html>
