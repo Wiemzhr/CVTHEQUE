@@ -89,17 +89,18 @@
             
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Ajouter un CV</h5>
+              <h5 class="card-title">Modifier :</h5>
             <form action="{{url('cvs/'.$cv->id)}}" method="post" >
                 <input type="hidden" name="_method" value="PUT">
             <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label" placeholder="{{$cv->name}}" value="{{$cv->name}}">Titre</label>
+                  <label for="inputText" class="col-sm-2 col-form-label" placeholder="{{$cv->name}}" value="{{$cv->name}}">Nom</label>
                   <div class="col-sm-10">
                   @csrf
                     <input type="text" class="form-control" name="name">
+                    <button type="submit" class="btn btn-secondary">Modifier</button>
                   </div>
 
-                  <button type="submit" class="btn btn-secondary">Modifier</button>
+                  
 </form>
                 </div>
 </div>

@@ -11,42 +11,16 @@ use App\Http\Requests\cvRequest;
 
 class UploadController extends Controller
 {
-    // public function analyse($id){
-    //   $cv =Cv::find($id);
-
-    //   $pieces = explode("/", $cv->link);
-    
-    //  $path = "C:/xampp/htdocs/wiemApp/Wiem-app/storage/app/public/uploads/".$pieces[3];
-  
-    //  $depart=shell_exec("C:/Users/Lenovo/anaconda3/envs/env/python.exe C:/Users/Lenovo/anaconda3/envs/env/temp.py ".escapeshellarg($path)); 
-      
-    //       return view('test',  ['depart' => $depart]);
-    //       }
+   //   public function analyse(){
 
 
-    //       public function store(cvRequest $request){
+   //    $depart=shell_exec("C:/Users/Lenovo/anaconda3/envs/env/python.exe C:/Users/Lenovo/anaconda3/envs/env/temp.py ".$path); 
 
-    //         $cv-> depart = $request -> input('depart');           
-    
-    //         $cv -> save();
-    
-            
-    
-    //         return redirect('cvs');
-    //     }
+   //    return view('test',  ['depart' => $depart]);
+
+   //       }
 
           
-
-
-    //Modifier un cv
-  //   public function update(Request $request, $id){
-  //     $cv =Cv::find($id);
-  //     $cv->depart = $request -> input('depart');
-
-  //     $cv -> save();
-
-  //     return redirect('cvs');
-  // }
 
 
 

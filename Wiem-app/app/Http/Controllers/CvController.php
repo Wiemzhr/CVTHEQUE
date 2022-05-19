@@ -47,6 +47,7 @@ class CvController extends Controller
   
          $class=shell_exec("C:/Users/Lenovo/anaconda3/envs/env/python.exe C:/Users/Lenovo/anaconda3/envs/env/temp.py ".escapeshellarg($path)); 
          $cv-> depart = $class;
+         
       
         $cv -> save();
 
